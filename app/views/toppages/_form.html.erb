@@ -9,15 +9,23 @@
     </div>
   <% end %> 
 
-
-  <%= f.label :best, '自己ベスト' %>
-  <%= f.text_field :best %>
-
-  <%= f.label :race, '目標大会・種目' %>
-  <%= f.text_field :race %>
-  
-  <%= f.label :target, '目標タイム' %>
-  <%= f.text_field :target %>
-
-  <%= f.submit '編集完了' %>
+  <div class="row">
+    <div class="mb-3">
+      <%= f.label :best, '自己ベスト' %>
+      <%= f.text_field :best %>
+    </div>
+    
+    <div class="mb-3">
+      <%= f.label :race, '目標大会・種目' %>
+      <%= f.text_field :race %>
+    </div>
+    
+    <div class="mb-3">
+      <%= f.label :target, '目標タイム' %>
+      <%= f.text_field :target %>
+    </div>
+    
+    
+    <%= f.submit '編集完了' %>
+  </div>  
 <% end %>
