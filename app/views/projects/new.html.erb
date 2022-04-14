@@ -1,0 +1,12 @@
+<h1>練習計画作成ページ</h1>
+
+
+<%= form_with(model: @project ) do |f| %>
+  <%= f.label :plan, '練習計画' %>
+  <%= f.text_field :plan %>
+  
+  
+  <%= f.submit '作成完了' %>
+<% end %>  
+  
+  <%= link_to '練習計画一覧ページに戻る', projects_path %>

@@ -1,0 +1,8 @@
+<h1>練習計画一覧</h1>
+
+
+<ul>
+  <% @projects.each do |project| %>
+    <li><%= link_to project.id, project %> : <%= project.plan %></li> 
+  <% end %>  
+</ul>

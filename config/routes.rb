@@ -10,18 +10,9 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   
   
-  # get 'toppages/:id', to: 'toppages#edit'
-  
-  
-  
-
-  
-  
-  
-  
-  
 
   resources :users, only: [:index, :show, :create]
-  resources :toppage
+  resources :toppages
   resources :workouts
+  resources :projects
 end
