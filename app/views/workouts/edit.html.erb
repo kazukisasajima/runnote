@@ -1,0 +1,11 @@
+<h1>id: <%= @workout.id %> の練習内容編集ページ</h1>
+
+<%= form_with(model: @workout) do |f| %>
+    <%= f.label :task, '練習内容' %>
+    <%= f.text_field :task %>
+    
+    
+    <%= f.submit '編集完了' %>
+<% end %>
+
+<%= link_to '練習内容一覧に戻る', workout_path %>

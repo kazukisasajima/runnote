@@ -1,0 +1,7 @@
+<h1>id: <%= @workout.id %>の練習内容</h1>
+
+<p><%= @workout.task %></p>
+
+<%= link_to '練習記録一覧に戻る', workout_path %>
+<%= link_to 'この練習内容を編集する', edit_workout_path(@workout) %>
+<%= link_to 'この練習内容を削除する', @workout, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>

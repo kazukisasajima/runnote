@@ -1,0 +1,10 @@
+<h1>練習記録一覧</h1>
+
+
+<ul>
+    <% @workouts.each do |workout| %>
+        <li><%= link_to workout.id, workout %>:<%= workout.task %></li>
+    <% end %>
+</ul>
+
+<%= link_to '新規作成', new_workout_path %>
