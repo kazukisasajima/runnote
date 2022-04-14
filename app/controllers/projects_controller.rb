@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
     
   def index
-    @projects = Project.all  
+    # @projects = Project.all
+    @pagy,@projects = pagy(Project.all, items:7)
   end
 
   def show

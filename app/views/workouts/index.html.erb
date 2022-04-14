@@ -1,3 +1,21 @@
+<div class="row">
+      <aside class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+           
+          </div>
+          <div class="card-body">
+            
+          </div>
+        </div>
+      </aside>
+      <div class="col-sm-8">
+        <ul class="nav nav-tabs nav-justified mb-3">
+          <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link">プロフィール</a></li>
+          <li class="nav-item"><a href="<%= workouts_path %>" class="nav-link">練習記録</a></li>
+          <li class="nav-item"><a href="<%= projects_path %>" class="nav-link">練習計画</a></li>
+        </ul>
+      </div>
 <h1>練習記録一覧</h1>
 
 
@@ -6,5 +24,7 @@
         <li><%= link_to workout.id, workout %>:<%= workout.task %></li>
     <% end %>
 </ul>
+<%== pagy_nav(@pagy) %>
+
 
 <%= link_to '新規作成', new_workout_path %>

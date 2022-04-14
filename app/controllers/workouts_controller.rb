@@ -1,7 +1,9 @@
 class WorkoutsController < ApplicationController
     
   def index
-    @workouts = Workout.all  
+    # @workouts = Workout.all
+    # @pagy, @workouts = pagy(Workout.all)
+    @pagy, @workouts = pagy(Workout.all, items: 7)
   end
 
   def show
