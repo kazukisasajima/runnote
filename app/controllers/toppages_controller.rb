@@ -1,11 +1,5 @@
 class ToppagesController < ApplicationController
-  before_action :require_user_logged_in, only: [:edit,]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   def index
-    @pagy, @users = pagy(User.order(id: :desc), items: 25)
+    @user = User.find_by(id: session[:user_id])
   end
-  
-  def edit
-  end
-  
 end

@@ -18,18 +18,13 @@ ActiveRecord::Schema.define(version: 2022_04_14_055722) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "toppages", charset: "utf8mb4", force: :cascade do |t|
-    t.string "best"
-    t.string "race"
-    t.string "target"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "best"
+    t.string "race"
+    t.string "target"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

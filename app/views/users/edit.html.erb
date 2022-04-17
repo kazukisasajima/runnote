@@ -1,0 +1,72 @@
+<div class="row">
+  <aside class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= current_user.name %></h3>
+      </div>
+      <div class="card-body">
+        <img class="rounded img-fluid" src="<%= gravatar_url(current_user, { size: 500 }) %>" alt="">
+      </div>
+    </div>
+  </aside>
+  
+  <div class="col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link">プロフィール</a></li>
+      <li class="nav-item"><a href="<%= workouts_path %>" class="nav-link">練習記録</a></li>
+      <li class="nav-item"><a href="<%= projects_path %>" class="nav-link">練習計画</a></li>
+    </ul>
+    
+    <%= form_with(model: current_user) do |f| %>
+      <% if f.object.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% f.object.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %> 
+    
+      <!--<div class="row">-->
+      <!--  <div class="mb-3">-->
+      <!--    <%= f.label :best, '自己ベスト' %>-->
+      <!--    <%= f.text_field :best %>-->
+      <!--  </div>-->
+        
+      <!--  <div class="mb-3">-->
+      <!--    <%= f.label :race, '目標大会・種目' %>-->
+      <!--    <%= f.text_field :race %>-->
+      <!--  </div>-->
+        
+      <!--  <div class="mb-3">-->
+      <!--    <%= f.label :target, '目標タイム' %>-->
+      <!--    <%= f.text_field :target %>-->
+      <!--  </div>-->
+        
+      <!--  <%= f.submit '編集完了' %>-->
+      <!--</div> -->
+      
+    
+    
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td class="col-sm-2"><%= f.label :best, '自己ベスト' %></td>
+            <td><%= f.text_field :best %></td>
+          </tr>
+          <tr>
+            <td class="col-sm-2"><%= f.label :race, '目標大会・種目' %></td>
+            <td><%= f.text_field :race %></td>
+          </tr>
+          <tr>
+            <td class="col-sm-2"><%= f.label :target, '目標タイム' %></td>
+            <td><%= f.text_field :target %></td>
+          </tr>
+        </tbody>
+      </table>
+        <%= f.submit '編集完了' %>
+      </div>
+    <% end %>
+  </div>
+</div>

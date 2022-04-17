@@ -4,6 +4,9 @@ class WorkoutsController < ApplicationController
     # @workouts = Workout.all
     # @pagy, @workouts = pagy(Workout.all)
     @pagy, @workouts = pagy(Workout.all, items: 7)
+    
+    #ユーザーのアイコンと名前を表示するため
+    @user = User.find_by(id: session[:user_id])
   end
 
   def show

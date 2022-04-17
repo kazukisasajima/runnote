@@ -1,30 +1,46 @@
 <div class="row">
-      <aside class="col-sm-4">
-        <div class="card">
-          <div class="card-header">
-           
-          </div>
-          <div class="card-body">
-            
-          </div>
-        </div>
-      </aside>
-      <div class="col-sm-8">
-        <ul class="nav nav-tabs nav-justified mb-3">
-          <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link">プロフィール</a></li>
-          <li class="nav-item"><a href="<%= workouts_path %>" class="nav-link">練習記録</a></li>
-          <li class="nav-item"><a href="<%= projects_path %>" class="nav-link">練習計画</a></li>
-        </ul>
+  <aside class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= @user.name %></h3>
       </div>
-<h1>練習記録一覧</h1>
-
-
-<ul>
-    <% @workouts.each do |workout| %>
-        <li><%= link_to workout.id, workout %>:<%= workout.task %></li>
+      <div class="card-body">
+        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+      </div>
+    </div>
+  </aside>
+  
+  
+  <div class="col-sm-8">
+    
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link">プロフィール</a></li>
+      <li class="nav-item"><a href="<%= workouts_path %>" class="nav-link">練習記録</a></li>
+      <li class="nav-item"><a href="<%= projects_path %>" class="nav-link">練習計画</a></li>
+    </ul>
+    
+    <h1>練習記録一覧</h1>
+    <% if @workouts.any? %>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col-sm-2">id</th>
+            <th>練習内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @workouts.each do |workout| %>
+            <tr>
+              <td><%= link_to workout.id, workout %></td>
+              <td><%= workout.task %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between	">
+        <%== pagy_bootstrap_nav(@pagy) %>
+        <%= link_to '新規作成', new_workout_path, class: "btn btn-primary h-50" %>
+      </div>
     <% end %>
-</ul>
-<%== pagy_nav(@pagy) %>
-
-
-<%= link_to '新規作成', new_workout_path %>
+  </div>
+</div>

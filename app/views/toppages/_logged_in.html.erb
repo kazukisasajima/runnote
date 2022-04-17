@@ -1,46 +1,39 @@
 <div class="row">
-      <aside class="col-sm-4">
-        <div class="card">
-          <div class="card-header">
-           
-          </div>
-          <div class="card-body">
-            
-          </div>
-        </div>
-      </aside>
-      <div class="col-sm-8">
-        <ul class="nav nav-tabs nav-justified mb-3">
-          <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link">プロフィール</a></li>
-          <li class="nav-item"><a href="<%= workouts_path %>" class="nav-link">練習記録</a></li>
-          <li class="nav-item"><a href="<%= projects_path %>" class="nav-link">練習計画</a></li>
-        </ul>
+  <aside class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= @user.name %></h3>
       </div>
-      
-      
-      <div class="container col-sm-8">
-        <div class="row">
-            <div class="col-sm-4">自己ベスト</div>    
-            <div class="col-sm-8">          </div>
-        </div>
-        
-        
-        
-        <div class="row">
-            <div class="col-sm4">目標大会・種目</div>
-            <div class="col-sm-8">          </div>
-        </div>
-        
-        
-        
-        <div class="row">
-            <div class="col-sm4">目標タイム</div>
-            <div class="col-sm-8">          </div>
-        </div>
+      <div class="card-body">
+        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
       </div>
-      
-      
-      <!--<%= link_to '編集', signup_path, class: 'btn btn-lg btn primary' %>-->
-      
-      
-</div>
+    </div>
+  </aside>
+  <div class="col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link">プロフィール</a></li>
+      <li class="nav-item"><a href="<%= workouts_path %>" class="nav-link">練習記録</a></li>
+      <li class="nav-item"><a href="<%= projects_path %>" class="nav-link">練習計画</a></li>
+    </ul>
+    
+    <h1>プロフィール</h1>
+    
+  <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td class="col-sm-2">自己ベスト</td>
+          <td><%= current_user.best %></td>
+        </tr>
+        <tr>
+          <td class="col-sm-2">目標大会・種目</td>
+          <td><%= current_user.race %></td>
+        </tr>
+        <tr>
+          <td class="col-sm-2">目標タイム</td>
+          <td><%= current_user.target %></td>
+        </tr>
+      </tbody>
+    </table> 
+    <%= link_to 'プロフィール編集', edit_user_path(current_user), class: "btn btn-primary" %>
+  </div>
+</div>      

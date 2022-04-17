@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -15,7 +17,19 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit; end
+  
+  def update
+    if current_user.update(user_params)
+      flash[:success] = 'ユーザを更新しました。'
+      redirect_to root_url
+    else
+      flash.now[:danger] = 'ユーザが更新できませんでした。'
+      render :edit
+    end
+  end
+  
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :best, :race, :target)
   end
 end

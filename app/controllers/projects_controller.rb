@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
     
   def index
-    # @projects = Project.all
+    @user = User.find_by(id: session[:user_id])
     @pagy,@projects = pagy(Project.all, items:7)
   end
 
