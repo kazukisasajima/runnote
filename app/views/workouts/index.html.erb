@@ -19,7 +19,10 @@
       <li class="nav-item"><a href="<%= projects_path %>" class="nav-link">練習計画</a></li>
     </ul>
     
-    <h1>練習記録一覧</h1>
+    <div class="d-flex">
+      <h1>練習記録一覧</h1>
+    <%= link_to '新規作成', new_workout_path, class: "btn btn-primary h-50 mt-1 ms-4" %>
+    </div>
     <% if @workouts.any? %>
       <table class="table table-bordered">
         <thead>
