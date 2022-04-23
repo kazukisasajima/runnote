@@ -3,6 +3,7 @@ class CreateWorkouts < ActiveRecord::Migration[6.1]
     create_table :workouts do |t|
       t.string :task
 
+
       t.timestamps
     end
   end

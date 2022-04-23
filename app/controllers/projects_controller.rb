@@ -1,26 +1,33 @@
 class ProjectsController < ApplicationController
-    
+  before_action :require_user_logged_in
+  
   def index
-    @user = User.find_by(id: session[:user_id])
-    @pagy,@projects = pagy(Project.all, items:7)
+    @user = current_user
+    @pagy,@projects = pagy(current_user.projects.order(id: :desc), items:7)
+    # @pagy,@projects = pagy(Project.all, items:7)
+    
   end
+  
 
   def show
     @project = Project.find(params[:id])
   end
 
+
   def new
-    @project = Project.new  
+    # @project = Project.new
+    @project = current_user.projects.build
   end
 
   def create
-    @project = Project.new(project_params)
-    
+    # @project = Project.new(project_params)
+      @project = current_user.projects.build(project_params)
+      
     if @project.save
       flash[:success] = '練習計画が正常に作成されました'
       redirect_to @project
     else
-      flash.now[:danger] = '練習計画が正常に作成されました'
+      flash.now[:danger] = '練習計画が正常に作成されませんでした'
       render :new
     end  
   end
@@ -46,7 +53,7 @@ class ProjectsController < ApplicationController
     @project.destroy
     
     flash[:success] = '練習計画は正常に削除されました'
-    redirect_to project_url
+    redirect_to projects_url
   end
   
   private

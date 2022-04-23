@@ -1,12 +1,9 @@
 class WorkoutsController < ApplicationController
     
   def index
-    # @workouts = Workout.all
-    # @pagy, @workouts = pagy(Workout.all)
+    @user = current_user
     @pagy, @workouts = pagy(Workout.all, items: 7)
-    
-    #ユーザーのアイコンと名前を表示するため
-    @user = User.find_by(id: session[:user_id])
+
   end
 
   def show
@@ -14,7 +11,7 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-    @workout = Workout.new(task: '練習内容を記入')
+    @workout = Workout.new
   end
 
   def create
@@ -50,7 +47,7 @@ class WorkoutsController < ApplicationController
     @workout.destroy
     
     flash[:success] = 'taskは正常に削除されました'
-    redirect_to workout_url
+    redirect_to workouts_url
   end
 
   
