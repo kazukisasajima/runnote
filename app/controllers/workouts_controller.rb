@@ -1,8 +1,9 @@
 class WorkoutsController < ApplicationController
+  before_action :require_user_logged_in
     
   def index
     @user = current_user
-    @pagy, @workouts = pagy(Workout.all, items: 7)
+    @pagy,@workouts = pagy(current_user.workouts.order(id: :desc), item:7)
 
   end
 
@@ -11,11 +12,11 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-    @workout = Workout.new
+    @workout = current_user.workouts.build
   end
 
   def create
-    @workout = Workout.new(workout_params)
+    @workout = current_user.workouts.build(workout_params)
     
     if @workout.save
       flash[:success] = 'taskが正常に作成されました'
