@@ -57,7 +57,7 @@ class WorkoutsController < ApplicationController
   
   #Strong Parameter
   def workout_params
-    params.require(:workout).permit(:task)
+    params.require(:workout).permit(:task, :tday)
   end  
 
 end

@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_062925) do
+ActiveRecord::Schema.define(version: 2022_05_18_133236) do
 
   create_table "projects", charset: "utf8mb4", force: :cascade do |t|
     t.string "plan"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.string "pday"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_062925) do
     t.string "target"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: false
   end
 
   create_table "workouts", charset: "utf8mb4", force: :cascade do |t|
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_062925) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.string "tday"
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 

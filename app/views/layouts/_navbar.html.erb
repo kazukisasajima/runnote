@@ -8,6 +8,10 @@
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <% if logged_in? %>
+        <ul class="navbar-nav">
+          <li class="nav-item"><%= link_to '退会', user_path(current_user), class: "btn btn-secondary me-4" %></li>
+        </ul>
+        
        <div class="btn-group">
         <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.name %></button>
         <ul class="dropdown-menu dropdown-menu-end">

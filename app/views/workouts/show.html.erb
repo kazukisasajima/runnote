@@ -1,6 +1,13 @@
-<h1>id: <%= @workout.id %>の練習内容</h1>
+<h1><%= @workout.tday %> の練習内容</h1>
 
-<p><%= @workout.task %></p>
+<div class="card">
+  <div class="card-header">
+    練習メニュー  
+  </div>
+  <div class="card-body">
+    <p><%= @workout.task %></p>  
+  </div>
+</div>
 
 <%= link_to '練習記録一覧に戻る', workouts_path %>
 <%= link_to 'この練習内容を編集する', edit_workout_path(@workout) %>

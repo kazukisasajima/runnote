@@ -1,11 +1,20 @@
-<h1>id: <%= @workout.id %> の練習内容編集ページ</h1>
+<div class="container">
+<h1 class="mt-4 pb-4 border-bottom"><%= @workout.tday %> の練習内容編集</h1>
 
 <%= form_with(model: @workout) do |f| %>
-    <%= f.label :task, '練習内容' %>
-    <%= f.text_field :task %>
-    
-    
-    <%= f.submit '編集完了' %>
+  <div class="mt-4 row">
+    <div class="col-sm-2">
+      <%= f.label :task, '練習内容', class: 'control-label' %>   
+    </div>
+    <div class="col-sm-10">
+       <%= f.text_field :task, class: 'form-control' %> 
+    </div>
+  </div>
+  
+  <div class="mt-4 mb-4 offset-sm-2 col-sm-10">
+      <%= f.submit '編集完了', class: 'btn w-100 btn-success' %>
+  </div>     
 <% end %>
 
 <%= link_to '練習内容一覧に戻る', workouts_path %>
+</div>

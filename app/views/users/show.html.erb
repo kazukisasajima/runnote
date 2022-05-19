@@ -1,19 +1,21 @@
-<div class="row">
-  <aside class="col-sm-4">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title"><%= @user.name %></h3>
-      </div>
-      <div class="card-body">
-        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
-      </div>
+<div class="text-center">
+  <div class="card ">
+    <div class="card-header h2">
+      退会お手続
     </div>
-  </aside>
-  <div class="col-sm-8">
-    <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">プロフィール</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">練習記録</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">練習計画</a></li>
-    </ul>
-  </div>
+    <div class="card-body">
+    　【退会前の確認事項】<br>
+    　                     <br>
+      退会手続きをされますと、全てのサービスがご利用いただけなくなります。<br>
+    再度ご利用をいただく場合には、新規登録のお手続きが必要になります。<br>
+    本当に退会してよろしいですか？
+    </div>  
+ </div>
+ <div class="justify-content-between mt-4">
+     <%= link_to "退会する", @user, method: :delete, class: "btn btn-secondary w-25",
+     data: { confirm: "本当に退会しますか？" } %>
+     
+   <%= link_to "キャンセル", root_path(current_user), class: "btn btn-danger w-25" %>
+ </div>
+   
 </div>

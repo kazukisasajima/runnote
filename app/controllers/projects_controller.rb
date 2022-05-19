@@ -4,8 +4,6 @@ class ProjectsController < ApplicationController
   def index
     @user = current_user
     @pagy,@projects = pagy(current_user.projects.order(id: :desc), items:7)
-    # @pagy,@projects = pagy(Project.all, items:7)
-    
   end
   
 
@@ -60,7 +58,7 @@ class ProjectsController < ApplicationController
   
   # Strong Parameter
   def project_params
-      params.require(:project).permit(:plan)
+      params.require(:project).permit(:plan, :pday)
   end  
   
   
