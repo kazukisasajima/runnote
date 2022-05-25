@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_18_133236) do
+ActiveRecord::Schema.define(version: 2022_05_05_134031) do
 
   create_table "projects", charset: "utf8mb4", force: :cascade do |t|
     t.string "plan"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2022_05_18_133236) do
     t.string "target"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin", default: false
   end
 
   create_table "workouts", charset: "utf8mb4", force: :cascade do |t|

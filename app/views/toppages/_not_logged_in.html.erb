@@ -1,13 +1,53 @@
-<div class="d-flex">
-
- <h1><%= image_tag 'photo01.png', class: 'hoge' %></h1>
-
-
-    <div>
-        <h1>練習記録や目標を管理して<br>
-            モチベーションアップ!
+<div class="row">
+  
+   <div class="main-visual"> 
+      <div class="main-text">
+        <h1>
+          練習記録や目標を管理して<br>
+          モチベーションアップ!
         </h1>
-        <h2>ランナー向け練習管理アプリ</h2>
-        <%= link_to '新規登録', signup_path, class: 'btn btn-lg btn-primary' %>
-    </div>
+        <h2 class="mb-3">
+          ランナー向け練習管理アプリ
+        </h2>
+        <a href="<%= signup_path %>" class="main-btn">今すぐ無料で始める</a>
+      </div>
+   </div>   
+  
+  
+    <div id="main">
+      <h2>Run Note</h2>
+        <secsion>
+          <div class="row">
+            <section class="col-sm-4">
+              <%= image_tag 'person-fill', class: 'main-icon', width:'13%', height:'13%' %>
+              <h3>プロフィール</h3>
+                <div class="point">
+                  <p>
+                    目標としている大会やタイムを記録してモチベーションアップ。<br>
+                    自分の種目と自己ベストを記録して目標管理。
+                  </p>
+                </div>
+            </section>
+            <section class="col-sm-4">
+              <%= image_tag 'calendar3', class: 'main-icon', width:'13%', height:'13%' %>
+              <h3>練習記録・計画</h3>
+                <div class="point">
+                  <p>
+                    毎日の練習メニューを記録して後で見返せるようにする。<br>
+                    目標達成に向けた練習計画を立てて記入する。
+                  </p>
+                </div>
+            </section>
+            <section class="col-sm-4">
+              <%= image_tag 'calculator', class: 'main-icon', width:'13%', height:'13%' %>
+              <h3>距離計算</h3>
+                <div class="point">
+                  <p>練習の時1km当たりのペースは決めたけど、このコース(距離)だと1周どれくらいのタイムで走ればいいか分からない。<br>レースを目標タイムで走るためのラップタイムの計算。
+                  </p>
+                </div>
+            </section>
+          </div>
+        </secsion>
+    </div>　
+    
 </div>
