@@ -1,33 +1,37 @@
-<div class="text-center">
-  <h1>新規登録</h1>
-</div>
-
-<div class="row">
-  <div class="col-sm-6 offset-sm-3">
-
-    <%= form_with(model: @user) do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-      <div class="mb-3">
-        <%= f.label :name, 'Name' %>
-        <%= f.text_field :name, class: 'form-control' %>
+<div class="bg-light p-4">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <div class="mb-3 text-center text-white border rounded-pill bg-secondary">
+        <h2>新規登録フォーム</h2>
       </div>
-
-      <div class="mb-3">
-        <%= f.label :email, 'Email' %>
-        <%= f.email_field :email, class: 'form-control' %>
+  
+      <%= form_with(model: @user) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="mb-3">
+          <%= f.label :name, 'お名前', class: 'border-start border-3 border-dark p-1 mb-2' %>
+          <%= f.text_field :name, class: 'form-control', placeholder: '名前を入力してください' %>
+        </div>
+  
+        <div class="mb-3">
+          <%= f.label :email, 'メールアドレス', class: 'border-start border-3 border-dark p-1 mb-2' %>
+          <%= f.email_field :email, class: 'form-control', placeholder: 'ログインに使用するメールアドレスを入力してください' %>
+        </div>
+  
+        <div class="mb-3">
+          <%= f.label :password, 'パスワード', class: 'border-start border-3 border-dark p-1 mb-2' %>
+          <%= f.password_field :password, class: 'form-control', placeholder: 'パスワードを入力してください' %>
+        </div>
+  
+        <div class="mb-3">
+          <%= f.label :password_confirmation, '確認用パスワード', class: 'border-start border-3 border-dark p-1 mb-2' %>
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワードをもう一度入力してください' %>
+        </div>
+        <%= f.submit '新規登録', class: 'text-primary border border-primary w-100 p-2 mt-2'%>
+      <% end %>
+      
+      <div class="text-center mt-3">
+        <p>すでにアカウントをお持ちの方は <%= link_to 'こちらからログイン', login_path %></p>
       </div>
-
-      <div class="mb-3">
-        <%= f.label :password, 'Password' %>
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.label :password_confirmation, 'Confirmation' %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-      </div>
-
-      <%= f.submit '新規登録', class: 'btn btn-primary w-100' %>
-    <% end %>
+    </div>
   </div>
 </div>
