@@ -1,0 +1,28 @@
+<h1 class="text-center mb-4"><%= @record.start_time.strftime("%m月-%d日") %>の練習内容</h1>
+
+
+<div class="show">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>メニュー</th>
+      <th>結果</th>
+      <th>感想</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @record.start_time.strftime("%m月-%d日") %></td>
+      <td><%= @record.train %></td>
+      <td><%= @record.result %></td>
+      <td><%= @record.review %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to '編集', edit_record_path(@record) %>
+<%= link_to '消去',record_path(@record.id), method: :delete, data: { confirm: '本当に?' } %>
+<%= link_to '戻る', records_path %>
+</div>

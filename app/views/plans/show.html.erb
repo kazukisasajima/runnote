@@ -1,0 +1,28 @@
+<h1 class="text-center mb-4"><%= @plan.start_time.strftime("%m月-%d日") %>の練習計画</h1>
+
+
+<div class="show">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>メニュー</th>
+      <th>設定タイム</th>
+      <th>目的</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @plan.start_time.strftime("%m月-%d日") %></td>
+      <td><%= @plan.menu %></td>
+      <td><%= @plan.time %></td>
+      <td><%= @plan.detail %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to '編集', edit_plan_path(@plan) %>
+<%= link_to '消去',plan_path(@plan.id), method: :delete, data: { confirm: '本当に?' } %>
+<%= link_to '戻る', plans_path %>
+</div>

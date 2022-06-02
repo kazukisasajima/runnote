@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="offset-sm-4 col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link">プロフィール</a></li>
+      <li class="nav-item"><a href="<%= records_path %>" class="nav-link active">練習記録</a></li>
+      <li class="nav-item"><a href="<%= plans_path %>" class="nav-link">練習計画</a></li>
+    </ul>
+  </div> 
+
+<div class="col-sm-4">
+  <div class="card">
+    <div class="card-header text-center">
+      <h4>練習記録</h4>
+    </div>
+    <div class="card-body p-2">
+    <%= form_with(model: @record, local: true) do |form| %>
+      <div class="title mt-1 mb-2">
+        <div class="form-tag">練習メニュー</div>
+        <%= form.text_field :train, class: 'w-100' %>
+      </div>
+      
+      <div class="setting mb-2">
+        <div class="form-tag">結果</div>
+        <%= form.text_area :result, class: 'w-100' %>
+      </div>
+      
+      <div class="ditail mb-2">
+        <div class="form-tag">感想</div>
+        <%= form.text_area :review, class: 'w-100' %>
+      </div>
+    
+      <div class="time mb-3">
+        <div class="form-tag">時間</div>
+        <%= form.datetime_select :start_time %>
+      </div>
+    
+     <div class="submit mt-2 mb-2">
+        <%= form.submit '作成', class: 'btn btn-warning w-100'  %>
+     </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-sm-8">
+<%= month_calendar events: @records do |date, records| %>
+  
+  <%= date.day %>
+  
+  <% records.each do |record| %>
+    <div>
+      <%= link_to record.train, record %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+
+<div class="offset-sm-4 col-sm-8">
+  <div class="schedule">一週間の練習記録</div>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>日程</th>
+        <th>メニュー</th>
+        <th>結果</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @records.each do |record| %>
+        <tr>
+          <td><%= record.start_time.strftime("%m月-%d日") if record.start_time %></td>
+          <td><%= link_to record.train, record %></td>
+          <td><%= record.result %></td>
+        </tr>
+      <% end %>
+    </tbody>  
+  </table>
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+
+</div>

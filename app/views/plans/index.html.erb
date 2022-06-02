@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="offset-sm-4 col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link">プロフィール</a></li>
+      <li class="nav-item"><a href="<%= records_path %>" class="nav-link">練習記録</a></li>
+      <li class="nav-item"><a href="<%= plans_path %>" class="nav-link active">練習計画</a></li>
+    </ul>
+  </div> 
+
+<div class="col-sm-4">
+  <div class="card">
+    <div class="card-header text-center">
+      <h4>練習計画</h4>
+    </div>
+    <div class="card-body p-2">
+    <%= form_with(model: @plan, local: true) do |form| %>
+      <div class="title mt-1 mb-2">
+        <div class="form-tag">メニュー</div>
+        <%= form.text_field :menu, class: 'w-100' %>
+      </div>
+      
+      <div class="setting mb-2">
+        <div class="form-tag">設定</div>
+        <%= form.text_area :time, class: 'w-100' %>
+      </div>
+      
+      <div class="ditail mb-2">
+        <div class="form-tag">目的</div>
+        <%= form.text_area :detail, class: 'w-100' %>
+      </div>
+    
+      <div class="time mb-3">
+        <div class="form-tag">時間</div>
+        <%= form.datetime_select :start_time %>
+      </div>
+    
+     <div class="submit mt-2 mb-2">
+        <%= form.submit '作成', class: 'btn btn-warning w-100'  %>
+     </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-sm-8">
+<%= month_calendar events: @plans do |date, plans| %>
+  
+  <%= date.day %>
+  
+  <% plans.each do |plan| %>
+    <div>
+      <%= link_to plan.menu, plan %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+
+<div class="offset-sm-4 col-sm-8">
+  <div class="schedule">今後の予定一覧</div>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>日程</th>
+        <th>メニュー</th>
+        <th>設定タイム</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @plans.each do |plan| %>
+        <tr>
+          <td><%= plan.start_time.strftime("%m月-%d日") if plan.start_time %></td>
+          <td><%= link_to plan.menu, plan %></td>
+          <td><%= plan.time %></td>
+        </tr>
+      <% end %>
+    </tbody>  
+  </table>
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+
+</div>

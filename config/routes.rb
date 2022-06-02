@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   
   resources :users, only: [:create, :show, :edit, :update, :destroy]
   resources :toppages, only: :index
-  resources :workouts
-  resources :projects
+  resources :plans
+  resources :records
 end

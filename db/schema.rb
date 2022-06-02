@@ -10,15 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_05_134031) do
+ActiveRecord::Schema.define(version: 2022_06_01_142241) do
 
-  create_table "projects", charset: "utf8mb4", force: :cascade do |t|
-    t.string "plan"
+  create_table "plans", charset: "utf8mb4", force: :cascade do |t|
+    t.string "menu"
+    t.string "time"
+    t.text "detail"
+    t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.string "pday"
-    t.index ["user_id"], name: "index_projects_on_user_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
+  end
+
+  create_table "records", charset: "utf8mb4", force: :cascade do |t|
+    t.string "train"
+    t.text "result"
+    t.text "review"
+    t.datetime "start_time"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_records_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -32,15 +45,6 @@ ActiveRecord::Schema.define(version: 2022_05_05_134031) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "workouts", charset: "utf8mb4", force: :cascade do |t|
-    t.string "task"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.string "tday"
-    t.index ["user_id"], name: "index_workouts_on_user_id"
-  end
-
-  add_foreign_key "projects", "users"
-  add_foreign_key "workouts", "users"
+  add_foreign_key "plans", "users"
+  add_foreign_key "records", "users"
 end
