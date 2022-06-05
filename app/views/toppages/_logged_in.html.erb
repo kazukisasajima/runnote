@@ -1,4 +1,15 @@
 <div class="row">
+  
+  <h1>プロフィール</h1>
+  
+   <div class="mt-1">
+    <ul class="nav nav-tabs mb-3">
+      <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link active">プロフィール</a></li>
+      <li class="nav-item"><a href="<%= records_path %>" class="nav-link ">練習記録</a></li>
+      <li class="nav-item"><a href="<%= plans_path %>" class="nav-link ">練習計画</a></li>
+    </ul>
+  </div>
+  
   <aside class="col-sm-4">
     <div class="card">
       <div class="card-header">
@@ -10,27 +21,22 @@
     </div>
   </aside>
   <div class="col-sm-8">
-    <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= toppages_path %>" class="nav-link active">プロフィール</a></li>
-      <li class="nav-item"><a href="<%= records_path %>" class="nav-link ">練習記録</a></li>
-      <li class="nav-item"><a href="<%= plans_path %>" class="nav-link ">練習計画</a></li>
-    </ul>
     
-    <h1>プロフィール</h1>
+    <h2>プロフィール</h2>
     
     <table class="table table-bordered">
       <tbody>
         <tr>
-          <td class="col-sm-2">自己ベスト</td>
-          <td><%= current_user.best %></td>
+          <td class="col-sm-2 align-middle text-center">自己ベスト</td>
+          <td><%= safe_join(current_user.best.split("\n"),tag(:br)) if current_user.best %></td>
         </tr>
         <tr>
-          <td class="col-sm-2">目標大会・種目</td>
-          <td><%= current_user.race %></td>
+          <td class="col-sm-2 align-middle text-center">目標大会・種目</td>
+          <td><%= safe_join(current_user.race.split("\n"),tag(:br)) if current_user.best %></td>
         </tr>
         <tr>
-          <td class="col-sm-2">目標タイム</td>
-          <td><%= current_user.target %></td>
+          <td class="col-sm-2 align-middle text-center">目標タイム</td>
+          <td><%= safe_join(current_user.target.split("\n"),tag(:br)) if current_user.best %></td>
         </tr>
       </tbody>
     </table> 

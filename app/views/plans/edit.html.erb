@@ -1,7 +1,7 @@
 <div class="offset-sm-4 col-sm-4">
   <div class="card">
     <div class="card-header text-center">
-      <h4><%= @plan.start_time.strftime("%m月-%d日") %>の練習計画</h4>
+      <h4><%= @plan.start_time.strftime("%m月%d日") %>の練習計画</h4>
     </div>
     <div class="card-body p-2">
     <%= form_with(model: @plan, local: true) do |form| %>
@@ -28,6 +28,7 @@
      <div class="submit mt-2 mb-2">
         <%= form.submit '編集完了', class: 'btn btn-warning w-100'  %>
      </div>
+     <%= link_to '戻る', plans_path, class: 'btn btn-primary w-100' %>
     <% end %>
     </div>
   </div>

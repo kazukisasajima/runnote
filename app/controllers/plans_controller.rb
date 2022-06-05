@@ -4,11 +4,11 @@ class PlansController < ApplicationController
   def index
     @user = current_user
     @plan = Plan.new
-    @pagy,@plans = pagy(current_user.plans.order(id: :desc), item:7)
+    @pagy,@plans = pagy(current_user.plans.order('start_time ASC'), items:7)
   end
   
   def new
-    @plan = Plan.new
+    
   end
 
   def show
@@ -22,7 +22,8 @@ class PlansController < ApplicationController
       flash[:success] = '練習メニューを作成しました'
       redirect_to plans_path
     else
-      flash.now[:danger] = '作成できませんでした'
+      @pagy,@plans = pagy(current_user.plans.order('start_time ASC'), items:7)
+      flash.now[:danger] = '作成できませんでした。　すべての項目を入力して下さい。'
       render :index
     end
   end

@@ -1,28 +1,29 @@
-<h1 class="text-center mb-4"><%= @plan.start_time.strftime("%m月-%d日") %>の練習計画</h1>
-
-
 <div class="show">
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>日付</th>
-      <th>メニュー</th>
-      <th>設定タイム</th>
-      <th>目的</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @plan.start_time.strftime("%m月-%d日") %></td>
-      <td><%= @plan.menu %></td>
-      <td><%= @plan.time %></td>
-      <td><%= @plan.detail %></td>
-    </tr>
-  </tbody>
-</table>
+ <h1 class="text-center mb-4"><%= @plan.start_time.strftime("%m月%d日") %>の練習計画</h1>
 
-<%= link_to '編集', edit_plan_path(@plan) %>
-<%= link_to '消去',plan_path(@plan.id), method: :delete, data: { confirm: '本当に?' } %>
-<%= link_to '戻る', plans_path %>
+  <table class="table table-bordered">
+    <tbody>
+      <tr class="bg-light">
+        <td class="col-sm-2">日付</td>
+        <td><%= @plan.start_time.strftime("%Y年%m月%d日") %></td>
+      </tr>
+      <tr>
+        <td class="col-sm-2 align-middle">メニュー</td>
+        <td><%= safe_join(@plan.menu.split("\n"),tag(:br)) %></td>
+      </tr>
+      <tr>
+        <td class="col-sm-2 align-middle">設定タイム</td>
+        <td><%= safe_join(@plan.time.split("\n"),tag(:br)) %></td>
+      </tr>
+      <tr>
+        <td class="col-sm-2 align-middle">目的</td>
+        <td><%= safe_join(@plan.detail.split("\n"),tag(:br)) %></td>
+      </tr>  
+    </tbody>
+  </table>
+
+  <%= link_to '編集', edit_plan_path(@plan), class: 'btn btn-success' %>
+  <%= link_to '消去',plan_path(@plan.id), method: :delete, data: { confirm: '本当に?' }, class: 'btn btn-danger' %>
+  <%= link_to '戻る', plans_path, class: 'btn btn-primary' %>
 </div>
