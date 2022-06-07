@@ -1,51 +1,52 @@
 <div class="row">
-   <div class="main-visual"> 
-      <div class="main-text">
-        <h1>
-          練習記録や目標を管理して<br>
-          モチベーションアップ!
-        </h1>
-        <h2 class="mb-3">
-          ランナー向け練習管理アプリ
-        </h2>
-        <a href="<%= signup_path %>" class="main-btn">今すぐ無料で始める</a>
-      </div>
-   </div>   
-    <div id="main">
-      <h2>Run Note</h2>
-        <secsion>
-          <div class="row">
-            <section class="col-sm-4">
-              <%= image_tag 'person-fill', class: 'main-icon', width:'13%', height:'13%' %>
-              <h3>プロフィール</h3>
-                <div class="point">
-                  <p>
-                    目標としている大会やタイムを記録してモチベーションアップ。<br>
-                    自分の種目と自己ベストを記録して目標管理。
-                  </p>
-                </div>
-            </section>
-            <section class="col-sm-4">
-              <%= image_tag 'pencil-fill', class: 'main-icon', width:'13%', height:'13%' %>
-              <h3>練習日誌</h3>
-                <div class="point">
-                  <p>
-                    日々の練習内容を記録。<br>
-                    定期的に練習内容を振り、成長を確かめよう。
-                  </p>  
-                </div>
-            </section>  
-            <section class="col-sm-4">
-              <%= image_tag 'calendar3', class: 'main-icon', width:'13%', height:'13%' %>
-              <h3>練習計画</h3>
-                <div class="point">
-                  <p>
-                    練習計画を作成。<br>
-                    目標達成に向けての練習を計画しよう。
-                  </p>
-                </div>
-            </section>
-          </div>
-        </secsion>
-    </div>　
+  <div class="main-visual"> 
+    <div class="main-text">
+      <h1>
+        練習記録や目標を管理して<br>
+        モチベーションアップ!
+      </h1>
+      <h2 class="mb-3">
+        ランナー向け練習管理アプリ
+      </h2>
+      <a href="<%= signup_path %>" class="main-btn">今すぐ無料で始める</a>
+    </div>
+  </div>
+   
+  <div id="main">
+    <h2>Run Note</h2>
+      <secsion class="explain">
+        <div class="row">
+          <section class="col-sm-4">
+            <%= image_tag 'person-fill', class: 'main-icon', width:'13%', height:'13%' %>
+            <h3>プロフィール</h3>
+              <div class="point">
+                <p>
+                  出場予定の大会や目標タイムを記入してモチベーションアップ。
+                  自分の種目や自己ベストを記録して意識を高めよう。
+                </p>
+              </div>
+          </section>
+          <section class="col-sm-4">
+            <%= image_tag 'pencil-fill', class: 'main-icon', width:'13%', height:'13%' %>
+            <h3>練習日誌</h3>
+              <div class="point">
+                <p>
+                  日々の練習内容を記録。<br>
+                  定期的に練習内容を振り返り、成長を確かめよう。
+                </p>  
+              </div>
+          </section>  
+          <section class="col-sm-4">
+            <%= image_tag 'calendar3', class: 'main-icon', width:'13%', height:'13%' %>
+            <h3>練習計画</h3>
+              <div class="point">
+                <p>
+                  練習計画を作成。<br>
+                  目標達成に向けて練習メニューを作成しよう。
+                </p>
+              </div>
+          </section>
+        </div>
+      </secsion>
+  </div>　
 </div>

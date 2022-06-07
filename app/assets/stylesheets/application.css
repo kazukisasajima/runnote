@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= toppages
  *= require simple_calendar
  *= require_tree .
  *= require_self
@@ -50,12 +51,52 @@
 
 #main h2 {
   text-align: center;
-  border: 2px solid #ddd;
-  margin: 3% auto 3% auto;
+  border-bottom: 2px solid #ddd;
+  margin: 3% auto 1% auto;
 }
 
 #main h3 {
   margin: 2% auto 4% auto;
 }
 
+
+
+/*編集ページの幅*/
+@media (min-width: 500px) {
+  /* ウインドウ幅500px以上の時に適用されるスタイル */
+  .edit {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 750px) {
+  /* ウインドウ幅750px以上の時に適用されるスタイル */
+  .edit {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+}
+
+
+/*カレンダーの下の表示幅*/
+@media (min-width: 950px) {
+  /* ウインドウ幅800px以上の時に適用されるスタイル */
+   .input-plan {
+    width: 35%;
+  }
+  .menu-plan {
+    width: 65%;
+  }
+  
+  .input-record {
+    width: 35%;
+  }
+  .menu-record {
+    width: 65%;
+  }
+}
 

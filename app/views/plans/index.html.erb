@@ -23,9 +23,7 @@
 <% end %>
 </div>
 
-
-
-<div class="col-sm-4">
+<div class="input-plan">
   <div class="card">
     <div class="card-header text-center">
       <h4>練習計画</h4>
@@ -60,8 +58,8 @@
   </div>
 </div>
 
-<div class="col-sm-8">
-   <div class="text-center mb-1">～今後の予定一覧～</div>
+<div class="menu-plan">
+   <div class="text-center">～今後の予定一覧～</div>
   <table class="table table-bordered">
     <thead class="bg-light">
       <tr>
@@ -80,7 +78,7 @@
           <td class="align-middle">
               <% weeks = ["日","月","火","水","木","金","土"]%>
               <% week = weeks[plan.start_time.wday]%>
-              <%= plan.start_time.strftime("%m月%d日(#{week})") if plan.start_time %>
+              <%= plan.start_time.strftime("%m/%d(#{week})") if plan.start_time %>
           </td>
           <td class="align-middle"><%= safe_join(plan.menu.split("\n"),tag(:br)) %></td>
           <td class="align-middle"><%= safe_join(plan.time.split("\n"),tag(:br)) %></td>

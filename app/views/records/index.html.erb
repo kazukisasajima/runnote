@@ -23,20 +23,24 @@
   <% end %>
 </div>
 
-<div class="col-sm-4">
+<div class="input-record">
   <div class="card">
     <div class="card-header text-center">
       <h4>練習内容</h4>
     </div>
+     <div class="text-danger mt-1">
+       &nbsp;*　同じ日付で2回以上作成しないで下さい。<br>
+          　&nbsp;&nbsp;追加や修正したい場合は編集から行って下さい。
+     </div>
     <div class="card-body p-2">
     <%= form_with(model: @record, local: true) do |form| %>
       <div class="title mt-1 mb-2">
         <div class="form-tag">練習メニュー</div>
-        <%= form.text_area :train, class: 'w-100' %>
+        <%= form.text_area :train, class: 'w-100', placeholder: text_placeholder %>
       </div>
       
       <div class="setting mb-2">
-        <div class="form-tag">タイム</div>
+        <div class="form-tag">結果(タイム)</div>
         <%= form.text_area :result, class: 'w-100' %>
       </div>
       
@@ -58,38 +62,25 @@
   </div>
 </div>
 
-<div class="col-sm-8">
-   <div class="schedule">一週間の練習記録</div>
-  <table class="table table-bordered">
-    <thead class="bg-light">
-      <tr>
-        <th>日程</th>
-        <th>練習メニュー</th>
-        <th>結果</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    
-    <% @records.each do |record| %>
-      <tbody>
-        <tr>
-          <td class="align-middle">
-              <% weeks = ["日","月","火","水","木","金","土"]%>
-              <% week = weeks[record.start_time.wday]%>
-              <%= record.start_time.strftime("%m月%d日(#{week})") if record.start_time %>
-          </td>
-          <td class="align-middle"><%= safe_join(record.train.split("\n"),tag(:br)) %></td>
-          <td class="align-middle"><%= safe_join(record.result.split("\n"),tag(:br)) %></td>
-          <td class="align-middle"><%= link_to '詳細', record_path(record), class: 'btn btn-primary btn-sm' %></td>
-          <td class="align-middle"><%= link_to '編集', edit_record_path(record), class: 'btn btn-success btn-sm' %></td>
-          <td class="align-middle"><%= link_to '削除', record_path(record), method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %></td>
-        </tr>
-      </tbody>
+<div class="menu-record">
+  <%= week_calendar events: @records do |date, records| %>
+  
+        <div class="align-middle">
+         <% weeks = ["日","月","火","水","木","金","土"]%>
+         <% week = weeks[date.wday]%> 
+         <%= date.month %>月<%= date.day %>日(<%= week %>)
+        </div>
+        
+  　<% records.each do |record| %>
+    　<td class="align-middle"><%= record.train %></td>
+      <td class="align-middle"><%= record.result %></td>
+      <td class="align-middle"><%= link_to '詳細', record_path(record), class: 'btn btn-primary btn-sm' %></td>
+      <td class="align-middle"><%= link_to '編集', edit_record_path(record), class: 'btn btn-success btn-sm' %></td>
+      <td class="align-middle"><%= link_to '削除', record_path(record), method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %></td>
     <% end %>
-  </table>
-  <%== pagy_bootstrap_nav(@pagy) %>
+    
+  <% end %>
 </div>
 
-</div>
+
+

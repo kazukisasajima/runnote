@@ -98,9 +98,9 @@ ja:
     am: "午前"
     pm: "午後"
 
-  simple_calendar:
-    previous: 前月
-    next: 次月
+  # simple_calendar:
+  #   previous: 前月
+  #   next: 次月
 
   helpers:
     submit:
