@@ -59,7 +59,7 @@
 </div>
 
 <div class="menu-plan">
-   <div class="text-center">～今後の予定一覧～</div>
+   <div class="text-center mt-3">～今後の予定一覧～</div>
   <table class="table table-bordered">
     <thead class="bg-light">
       <tr>
@@ -75,16 +75,16 @@
     <% @plans.each do |plan| %>
       <tbody>
         <tr>
-          <td class="align-middle">
+          <td class="week-day align-middle">
               <% weeks = ["日","月","火","水","木","金","土"]%>
               <% week = weeks[plan.start_time.wday]%>
               <%= plan.start_time.strftime("%m/%d(#{week})") if plan.start_time %>
           </td>
-          <td class="align-middle"><%= safe_join(plan.menu.split("\n"),tag(:br)) %></td>
-          <td class="align-middle"><%= safe_join(plan.time.split("\n"),tag(:br)) %></td>
-          <td class="align-middle"><%= link_to '詳細', plan_path(plan), class: 'btn btn-primary btn-sm' %></td>
-          <td class="align-middle"><%= link_to '編集', edit_plan_path(plan), class: 'btn btn-success btn-sm' %></td>
-          <td class="align-middle"><%= link_to '削除', plan_path(plan), method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %></td>
+          <td class="plan-td-text align-middle"><%= safe_join(plan.menu.split("\n"),tag(:br)) %></td>
+          <td class="plan-td-text align-middle"><%= safe_join(plan.time.split("\n"),tag(:br)) %></td>
+          <td class="align-middle"><%= link_to '詳細', plan_path(plan), class: 'plan-td btn btn-primary btn-sm' %></td>
+          <td class="align-middle"><%= link_to '編集', edit_plan_path(plan), class: 'plan-td btn btn-success btn-sm' %></td>
+          <td class="align-middle"><%= link_to '削除', plan_path(plan), method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'plan-td btn btn-danger btn-sm' %></td>
         </tr>
       </tbody>
     <% end %>

@@ -40,18 +40,28 @@
   border-style: solid;
   padding: 1px 6px 1px 6px;
  } 
+ 
+ .table {
+   /* これのおかげでカレンダーの幅が均等に保たれて、文字もはみ出さない */
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+
+
 }
 
 .link-in-calendar {
    text-decoration: none;
    font-size: 13px;
-   color: #fff;
+   font-weight: 5px;
+   color: #000;
  }
  
  .title-in-calendar {
-  background-color: #198754;
-  text-align: center
+  background-color: rgb(150,250,150,);
+  padding-left: 2px;
+  // text-align: center
  }
  
 
- 

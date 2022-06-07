@@ -11,17 +11,19 @@
     <!--<% end %>-->
      ～1週間のメニュ一覧～
     <%= link_to t('simple_calendar.next', default: '次週'), calendar.url_for_next_view %>
-      <tr>
-        <th>日程</th>
+    <thead class="bg-light">  
+      <tr class="record-tr align-middle">
+        <th class="record-th-day">日程</th>
         <th>練習メニュー</th>
         <th>結果</th>
-        <th>詳細</th>
-        <th>編集</th>
-        <th>削除</th>
+        <th class="record-th">詳細</th>
+        <th class="record-th">編集</th>
+        <th class="record-th">削除</th>
       </tr>
-    
-      <tr>
+    </thead>
+    <tbody>  
   　　<% date_range.each_slice(7) do |week| %>
+  　　<tr>
   　     <% week.each do |day| %>
   　　      <%= content_tag :td, class: calendar.td_classes_for(day) do %>
         　　<% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
@@ -33,10 +35,6 @@
       </tr>          
         <% end %>
       <% end %>
+    <tbody>  
 　</table>
-　
-　
-    
-  
-　
 </div>

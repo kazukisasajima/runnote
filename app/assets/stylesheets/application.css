@@ -82,9 +82,9 @@
 }
 
 
-/*カレンダーの下の表示幅*/
-@media (min-width: 950px) {
-  /* ウインドウ幅800px以上の時に適用されるスタイル */
+
+@media (min-width: 992px) {
+  /* ウインドウ幅992px以上の時に適用されるスタイル */
    .input-plan {
     width: 35%;
   }
@@ -98,5 +98,119 @@
   .menu-record {
     width: 65%;
   }
+  
+  .record-th {
+    width: 56px;
+  }
+  
+  .record-th-day {
+    width: 72px;
+  }
+  .week-day {
+    font-size: 14px;
+  }
+  
+  .record-td {
+    font-size: 12px;
+    /*width: 25px;*/
+    padding: 5px;
+  }
+  
+  
+  .record-td-text {
+    font-size: 15px;
+  }
+  
+  .plan-td {
+    font-size: 12px;
+    padding: 5px;
+  }
+  
+  .plan-td-text {
+    font-size: 15px;
+  } 
+  
+  
+  
+  .show-td1 {
+    width: 70px;
+  }
 }
 
+
+
+@media (max-width: 991px) {
+  .record-tr {
+    font-size: 14px;
+  }
+  
+  .record-th {
+    width: 35px;
+     
+  }
+  
+  .record-td {
+    font-size: 12px;
+    width: 25px;
+    padding: 0px;
+    justify-content: center;
+  }
+  
+  .plan-td {
+    font-size: 12px;
+    padding: 5px;
+  }
+  
+  .record-th-day {
+    width: 72px;
+  }
+  .week-day {
+    font-size: 14px;
+
+  }
+  
+  .record-td-text {
+    font-size: 14px;
+  }
+  
+   .plan-td-text {
+    font-size: 14px;
+  } 
+  
+  
+  .show-td1 {
+    width: 70px;
+  }
+  .show-td2 {
+    font-size: 14px;
+  }
+  
+}
+
+
+
+@media (max-width: 767px) {
+  .record-th-day {
+    width: 64px;
+  }
+  .week-day {
+    font-size: 12px;
+  }
+  .record-td-text {
+    font-size: 13px;
+  }
+  
+   .plan-td-text {
+    font-size: 13px;
+  } 
+  
+  .link-in-calendar {
+   text-decoration: none;
+   font-size: 12px;
+   color: #000;
+ }
+}
+
+@media (max-width: 575px) {
+
+}

@@ -5,20 +5,20 @@
   <table class="table table-bordered">
     <tbody>
       <tr class="bg-light">
-        <td class="col-sm-2">日付</td>
+        <td class="show-td1">日付</td>
         <td><%= @record.start_time.strftime("%Y年%m月%d日") %></td>
       </tr>
       <tr>
-        <td class="col-sm-2 align-middle">メニュー</td>
-        <td><%= safe_join(@record.train.split("\n"),tag(:br)) %></td>
+        <td class="show-td1 align-middle">メニュー</td>
+        <td class="show-td2"><%= safe_join(@record.train.split("\n"),tag(:br)) %></td>
       </tr>
       <tr>
-        <td class="col-sm-2 align-middle">結果</td>
-        <td><%= safe_join(@record.result.split("\n"),tag(:br)) %></td>
+        <td class="show-td1 align-middle">結果</td>
+        <td class="show-td2"><%= safe_join(@record.result.split("\n"),tag(:br)) %></td>
       </tr>
       <tr>    
-        <td class="col-sm-2 align-middle">感想</td>
-        <td><%= safe_join(@record.review.split("\n"),tag(:br)) %></td>
+        <td class="show-td1 align-middle">感想</td>
+        <td class="show-td2"><%= safe_join(@record.review.split("\n"),tag(:br)) %></td>
       </tr>
     </tbody>
   </table>

@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
   def index
     @user = current_user
     @record = Record.new
-    @pagy,@records = pagy(current_user.records.order('start_time ASC'), items:7)
+    @records = current_user.records
   end
   
   def new
@@ -22,7 +22,7 @@ class RecordsController < ApplicationController
       flash[:success] = '練習メニューを作成しました'
       redirect_to records_path 
     else
-      @pagy,@records = pagy(current_user.records.order('start_time ASC'), items:7)
+      @records = current_user.records
       flash.now[:danger] = '作成できませんでした。　すべての項目を入力して下さい。'
       render :index
     end
