@@ -146,7 +146,6 @@
   
   .record-th {
     width: 35px;
-     
   }
   
   .record-td {
@@ -164,6 +163,7 @@
   .record-th-day {
     width: 72px;
   }
+  
   .week-day {
     font-size: 14px;
 
@@ -200,7 +200,7 @@
     font-size: 13px;
   }
   
-   .plan-td-text {
+  .plan-td-text {
     font-size: 13px;
   } 
   
@@ -212,5 +212,7 @@
 }
 
 @media (max-width: 575px) {
-
+  .plan-th {
+    font-size: 14px;
+  }
 }
