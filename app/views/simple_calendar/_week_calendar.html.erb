@@ -1,16 +1,15 @@
 <div class="simple-calendar">
   
      <!--<% date_range.slice(0, 1).each do |day| %> <% end %>-->
-  <table class="table table-bordered mt-0">
-     
+  <table class="table table-bordered">
       <%= link_to t('simple_calendar.previous', default: '前週'), calendar.url_for_previous_view %>
     <!--<% if calendar.number_of_weeks == 1 %>-->
     <!--  <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %></span>-->
     <!--<% else %>-->
     <!--  <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>-->
     <!--<% end %>-->
-     ～1週間のメニュ一覧～
-    <%= link_to t('simple_calendar.next', default: '次週'), calendar.url_for_next_view %>
+       ～1週間のメニュ一覧～
+      <%= link_to t('simple_calendar.next', default: '次週'), calendar.url_for_next_view %>
     <thead class="bg-light">  
       <tr class="record-tr align-middle">
         <th class="record-th-day">日程</th>
