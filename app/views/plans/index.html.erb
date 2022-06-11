@@ -68,7 +68,6 @@
         <th class="plan-th align-middle">設定タイム</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     
@@ -82,7 +81,6 @@
           </td>
           <td class="plan-td-text align-middle"><%= safe_join(plan.menu.split("\n"),tag(:br)) %></td>
           <td class="plan-td-text align-middle"><%= safe_join(plan.time.split("\n"),tag(:br)) %></td>
-          <td class="align-middle"><%= link_to '詳細', plan_path(plan), class: 'plan-td btn btn-primary btn-sm' %></td>
           <td class="align-middle"><%= link_to '編集', edit_plan_path(plan), class: 'plan-td btn btn-success btn-sm' %></td>
           <td class="align-middle"><%= link_to '削除', plan_path(plan), method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'plan-td btn btn-danger btn-sm' %></td>
         </tr>

@@ -26,7 +26,7 @@
 .main-text {
   background-color: #fff;
   opacity: 0.9;
-  width: 50%;
+  max-width: 600px;
   text-align: center;
   margin: 20% auto 3% auto;
   padding: 10px 10px 20px 10px;
