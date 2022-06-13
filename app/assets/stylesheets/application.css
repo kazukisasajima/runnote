@@ -89,28 +89,20 @@ footer {
   margin: 0 auto;
   /*padding: 1em 2em;*/
   width: 300px;
-  color: #333;
+  color: #fff;
   font-size: 18px;
   font-weight: 700;
-  background-color: #cccccc;
-  box-shadow: 0 5px 0 #aaaaaa;
+  background-color: rgb(0, 190, 255);
+  box-shadow: 0 5px 0 rgb(0, 175, 255);
   transition: 0.3s;
   text-align: center;
 }
 
-/*.button01::after {*/
-  /*content: '';*/
-/*  width: 5px;*/
-/*  height: 5px;*/
-/*  border-top: 3px solid #333333;*/
-/*  border-right: 3px solid #333333;*/
-/*  transform: rotate(45deg);*/
-/*}*/
-
 .button01:hover {
+  color: #fff;
   transform: translateY(3px);
   text-decoration: none;
-  box-shadow: 0 2px 0 #aaaaaa;
+  box-shadow: 0 2px 0 rgb(0, 175, 255);
 }
 
 
